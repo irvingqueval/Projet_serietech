@@ -1,5 +1,6 @@
 <?php
 require_once "_connect.php";
+$pdo = new \PDO(DSN, USER);
 ?>
 <!DOCTYPE html>
 <html lang="en">
