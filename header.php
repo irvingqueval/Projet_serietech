@@ -19,7 +19,7 @@ $pdo = new \PDO(DSN, USER);
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="../index.php">Série Tech</a>
+      <a class="navbar-brand" href="../index.php">Series Tech</a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
@@ -44,12 +44,12 @@ $pdo = new \PDO(DSN, USER);
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/serie/form-addSerie.php">Ajouter une série</a>
+          <a class="nav-link active" aria-current="page" href="/serie/form-addSerie.php">Add a series</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Recherche</button>
+        <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
   </div>

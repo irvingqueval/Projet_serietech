@@ -8,14 +8,14 @@ $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <div class="container">
-    <h2>Ajouter une nouvelle série</h2>
+    <h2>Add a new series</h2>
     <form action="addSerie.php" method="post" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="name" class="form-label">Nom de la série</label>
+            <label for="name" class="form-label">Series name</label>
             <input type="text" class="form-control" id="name" name="name" required>
         </div>
         <div class="mb-3">
-            <label for="numberOfSeasons" class="form-label">Nombre de saisons</label>
+            <label for="numberOfSeasons" class="form-label">Number of seasons</label>
             <input type="number" class="form-control" id="number_of_seasons" name="numberOfSeasons" required>
         </div>
         <div class="mb-3">
@@ -23,7 +23,7 @@ $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
             <textarea class="form-control" id="synopsis" name="synopsis" rows="3" required></textarea>
         </div>
         <div class="mb-3">
-            <label for="categories" class="form-label">Catégories</label><br>
+            <label for="categories" class="form-label">Categories</label><br>
             <?php foreach ($categories as $category) : ?>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="category<?=$category['id']?>" name="categories[]" value="<?=$category['id']?>">
@@ -32,9 +32,9 @@ $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
             <?php endforeach; ?>
         </div>
         <div class="mb-3">
-            <label for="image" class="form-label">Affiche de la série</label>
+            <label for="image" class="form-label">Series poster</label>
             <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
         </div>
-        <button type="submit" class="btn btn-primary">Ajouter</button>
+        <button type="submit" class="btn btn-primary">Add</button>
     </form>
 </div>

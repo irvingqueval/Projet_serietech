@@ -24,7 +24,7 @@ foreach ($series as $serie) {
           <h5 class="card-title" style="font-size: 30px;">
             <?= $serie['name'] ?> - <span style="font-size: 20px;"><?= $serie['category_names'] ?></span>
           </h5>
-          <p>Nombre de saison : <?= $serie['numberOfSeasons'] ?></p>
+          <p>Number of seasons : <?= $serie['numberOfSeasons'] ?></p>
           <p class="card-text"><?= $serie['synopsis'] ?></p>
           <button type="button" class="btn btn-outline-danger">
             <a href="/serie/deleteSerie.php?id=<?= $serie['id'] ?>">Delete</a>
