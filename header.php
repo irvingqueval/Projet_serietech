@@ -19,24 +19,32 @@ $pdo = new \PDO(DSN, USER);
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="index.php">Série Tech</a>
+      <a class="navbar-brand" href="../index.php">Série Tech</a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+          <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Category
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">comedy</a></li>
+            <li><a class="dropdown-item" href="#">dramatic</a></li>
+            <li><a class="dropdown-item" href="#">police officer</a></li>
+            <li><a class="dropdown-item" href="#">judicial</a></li>
+            <li><a class="dropdown-item" href="#">medical</a></li>
+            <li><a class="dropdown-item" href="#">policy</a></li>
+            <li><a class="dropdown-item" href="#">action/adventure</a></li>
+            <li><a class="dropdown-item" href="#">fantasy and science fiction</a></li>
+            <li><a class="dropdown-item" href="#">sports series</a></li>
+            <li><a class="dropdown-item" href="#">historical series</a></li>
+            <li><a class="dropdown-item" href="#">yourth</a></li>
+            <li><a class="dropdown-item" href="#">horror</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/serie/addSerie.php">Ajouter une série</a>
+          <a class="nav-link active" aria-current="page" href="/serie/form-addSerie.php">Ajouter une série</a>
         </li>
       </ul>
       <form class="d-flex" role="search">

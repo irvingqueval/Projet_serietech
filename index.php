@@ -3,7 +3,7 @@ include "header.php";
 
 // Requête SQL pour joindre les tables serie, serie_category, et category
 $query = "
-    SELECT s.id, s.name, s.synopsis, s.image_url, GROUP_CONCAT(c.nom SEPARATOR ', ') AS category_names
+    SELECT s.id, s.name, s.numberOfSeasons, s.synopsis, s.image_url, GROUP_CONCAT(c.nom SEPARATOR ', ') AS category_names
     FROM serie s
     JOIN serie_category sc ON s.id = sc.serie_ID
     JOIN category c ON sc.cat_ID = c.id
@@ -24,6 +24,7 @@ foreach ($series as $serie) {
           <h5 class="card-title" style="font-size: 30px;">
             <?= $serie['name'] ?> - <span style="font-size: 20px;"><?= $serie['category_names'] ?></span>
           </h5>
+          <p>Nombre de saison : <?= $serie['numberOfSeasons'] ?></p>
           <p class="card-text"><?= $serie['synopsis'] ?></p>
           <button type="button" class="btn btn-outline-danger">
             <a href="/serie/deleteSerie.php?id=<?= $serie['id'] ?>">Delete</a>
