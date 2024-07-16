@@ -3,8 +3,6 @@ include "../header.php";
 
 $id=$_GET['id'];
 
-var_dump($id);
-
 // 2. requete delete from book
 $query = "DELETE FROM serie WHERE id = :id";
 

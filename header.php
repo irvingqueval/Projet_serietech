@@ -29,18 +29,18 @@ $pdo = new \PDO(DSN, USER);
             Category
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">comedy</a></li>
-            <li><a class="dropdown-item" href="#">dramatic</a></li>
-            <li><a class="dropdown-item" href="#">police officer</a></li>
-            <li><a class="dropdown-item" href="#">judicial</a></li>
-            <li><a class="dropdown-item" href="#">medical</a></li>
-            <li><a class="dropdown-item" href="#">policy</a></li>
-            <li><a class="dropdown-item" href="#">action/adventure</a></li>
-            <li><a class="dropdown-item" href="#">fantasy and science fiction</a></li>
-            <li><a class="dropdown-item" href="#">sports series</a></li>
-            <li><a class="dropdown-item" href="#">historical series</a></li>
-            <li><a class="dropdown-item" href="#">yourth</a></li>
-            <li><a class="dropdown-item" href="#">horror</a></li>
+            <li><a class="dropdown-item" href="/comedy_page.php">comedy</a></li>
+            <li><a class="dropdown-item" href="/dramatic_page.php">dramatic</a></li>
+            <li><a class="dropdown-item" href="/police_officer_page.php">police officer</a></li>
+            <li><a class="dropdown-item" href="/judicial_page.php">judicial</a></li>
+            <li><a class="dropdown-item" href="/medical_page.php">medical</a></li>
+            <li><a class="dropdown-item" href="/policy_page.php">policy</a></li>
+            <li><a class="dropdown-item" href="/action_adventure_page.php">action/adventure</a></li>
+            <li><a class="dropdown-item" href="/fantasy_science_fiction_page.php">fantasy and science fiction</a></li>
+            <li><a class="dropdown-item" href="/sports_series_page.php">sports series</a></li>
+            <li><a class="dropdown-item" href="/historical_series_page.php">historical series</a></li>
+            <li><a class="dropdown-item" href="/yourth_page.php">yourth</a></li>
+            <li><a class="dropdown-item" href="/horror_page.php">horror</a></li>
           </ul>
         </li>
         <li class="nav-item">
