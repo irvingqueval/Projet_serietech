@@ -34,7 +34,7 @@ $series = $statement->fetchAll(PDO::FETCH_ASSOC);
             <div class="card mb-3" style="max-width: 100%;">
                 <div class="row g-0">
                     <div class="col-md-4 d-flex justify-content-center align-items-center">
-                        <img src="<?=$serie['image_url']?>" class="img-fluid rounded-start" alt="Affiche de <?=$serie['name']?>" style="width:250px; height:300px;">
+                        <img src="<?= $serie['image_url'] ?>" class="img-fluid rounded-start" alt="Affiche de <?= $serie['name'] ?>" style="width:250px; height:300px;">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -42,6 +42,9 @@ $series = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 <?= htmlspecialchars($serie['name']) ?>
                             </h5>
                             <p class="card-text"><?= htmlspecialchars($serie['synopsis']) ?></p>
+                            <button type="button" class="btn btn-outline-danger">
+                                <a href="/serie/confirmDelete.php?id=<?= $serie['id'] ?>">Delete</a>
+                            </button>
                         </div>
                     </div>
                 </div>
