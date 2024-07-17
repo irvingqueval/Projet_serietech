@@ -21,10 +21,10 @@ $query = "
     JOIN serie_category ON serie.id = serie_category.serie_ID
     WHERE serie_category.cat_ID = :category_id
 ";
-$statement = $pdo->prepare($query);
-$statement->execute([':category_id' => $id]);
-$series = $statement->fetchAll(PDO::FETCH_ASSOC);
-
+$stm = $pdo->prepare($query);
+$stm->bindValue(":category_id", $id);
+$stm->execute();
+$series = $stm->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <div class="container mt-5">
