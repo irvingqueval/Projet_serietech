@@ -42,6 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: success.php");
         exit;
     } else {
-        echo "Désolé, une erreur s'est produite lors du téléchargement de l'image.";
+        echo "Sorry, there was an error uploading the image.";
     }
 }

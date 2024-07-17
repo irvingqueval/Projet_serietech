@@ -46,6 +46,15 @@ $pdo = new \PDO(DSN, USER);
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/serie/form-addSerie.php">Add a series</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/category/form-addCategory.php">Add a category</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/category/form-deleteCategory.php">Delete a category</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/category/updateCategory.php">Update a category</a>
+        </li>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
