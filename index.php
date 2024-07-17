@@ -29,6 +29,9 @@ foreach ($series as $serie) {
           <button type="button" class="btn btn-outline-danger">
             <a href="/serie/confirmDelete.php?id=<?= $serie['id'] ?>">Delete</a>
           </button>
+          <button type="button" class="btn btn-outline-warning">
+            <a href="/serie/updateSerie.php?id=<?= $serie['id'] ?>">Update</a>
+          </button>
         </div>
       </div>
     </div>
