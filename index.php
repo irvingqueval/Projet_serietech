@@ -27,7 +27,7 @@ foreach ($series as $serie) {
           <p>Number of seasons : <?= $serie['numberOfSeasons'] ?></p>
           <p class="card-text"><?= $serie['synopsis'] ?></p>
           <button type="button" class="btn btn-outline-danger">
-            <a href="/serie/deleteSerie.php?id=<?= $serie['id'] ?>">Delete</a>
+            <a href="/serie/confirmDelete.php?id=<?= $serie['id'] ?>">Delete</a>
           </button>
         </div>
       </div>
