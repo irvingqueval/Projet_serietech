@@ -60,6 +60,9 @@ $pdo = new \PDO(DSN, USER);
         <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <a class="nav-link" href="/authentification/login.php">
+        <img src="/logo/connexion.webp" alt="Login" style="width: 40px; height: 40px;">
+      </a>
     </div>
   </div>
 </nav>
