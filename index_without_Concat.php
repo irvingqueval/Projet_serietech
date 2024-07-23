@@ -58,3 +58,4 @@ foreach ($series as $serie) {
   </div>
 <?php
 }
+
