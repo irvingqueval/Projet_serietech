@@ -1,16 +1,34 @@
 <?php
 include "header.php";
 
-// Requête SQL pour joindre les tables serie, serie_category, et category
 $query = "
-    SELECT s.id, s.name, s.numberOfSeasons, s.synopsis, s.image_url, GROUP_CONCAT(c.nom SEPARATOR ', ') AS category_names
+    SELECT s.id, s.name, s.numberOfSeasons, s.synopsis, s.image_url, c.nom AS category_name
     FROM serie s
     JOIN serie_category sc ON s.id = sc.serie_ID
     JOIN category c ON sc.cat_ID = c.id
-    GROUP BY s.id, s.name, s.synopsis, s.image_url
 ";
 $statement = $pdo->query($query);
-$series = $statement->fetchAll(PDO::FETCH_ASSOC);
+$results = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+$series = [];
+foreach ($results as $row) {
+    $serieId = $row['id'];
+    if (!isset($series[$serieId])) {
+        $series[$serieId] = [
+            'id' => $row['id'],
+            'name' => $row['name'],
+            'numberOfSeasons' => $row['numberOfSeasons'],
+            'synopsis' => $row['synopsis'],
+            'image_url' => $row['image_url'],
+            'category_names' => []
+        ];
+    }
+    $series[$serieId]['category_names'][] = $row['category_name'];
+}
+
+foreach ($series as $serieId => $serie) {
+    $series[$serieId]['category_names'] = implode(', ', $serie['category_names']);
+}
 
 foreach ($series as $serie) {
 ?>
@@ -18,7 +36,7 @@ foreach ($series as $serie) {
     <div class="row g-0">
       <div class="col-md-4 d-flex justify-content-center align-items-center">
         <a href="serieDetail.php?id=<?= $serie['id'] ?>">
-          <img src="<?= $serie['image_url'] ?>" class="img-fluid rounded-start" alt="..." style="width:250px; height:300px;">
+        <img src="<?= $serie['image_url'] ?>" class="img-fluid rounded-start" alt="..." style="width:250px; height:300px;">
         </a>
       </div>
       <div class="col-md-8">
