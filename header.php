@@ -11,7 +11,8 @@ if (isset($_GET['search'])) {
     JOIN serie_category sc ON s.id = sc.serie_ID
     JOIN category c ON sc.cat_ID = c.id
     WHERE name LIKE :search
-    GROUP BY s.id, s.name, s.synopsis, s.image_url");
+    GROUP BY s.id, s.name, s.synopsis, s.image_url
+    ORDER BY s.name");
   $stmt->execute(['search' => '%' . $search . '%']);
   $results = $stmt->fetchAll();
 }
