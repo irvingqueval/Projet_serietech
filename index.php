@@ -34,6 +34,9 @@ foreach ($series as $serie) {
           <button type="button" class="btn btn-outline-warning">
             <a href="/serie/updateSerie.php?id=<?= $serie['id'] ?>">Update</a>
           </button>
+          <button type="button" class="btn btn-outline-success">
+            <a>Add to cart</a>
+          </button>
         </div>
       </div>
     </div>

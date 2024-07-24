@@ -60,10 +60,13 @@ $pdo = new \PDO(DSN, USER);
         <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <a class="nav-link" href="/cart.php">
+        <img src="/logo/shopping-cart.webp" style="width: 40px; height: 40px;">
+      </a>
       <?php if (isset($_SESSION["user"])){?>
           <p><?php echo $_SESSION["user"]["email"];?></p>
           <a class="nav-link" href="/authentification/logout.php">
-            <img src="/logo/Logout.webp" alt="Login" style="width: 40px; height: 40px;">
+            <img src="/logo/Logout.webp" alt="Logout" style="width: 40px; height: 40px;">
           </a>
         <?php }
         else  { ?>
