@@ -1,10 +1,24 @@
 <?php
 require_once "_connect.php";
 $pdo = new \PDO(DSN, USER);
+
+$search = '';
+$results = [];
+if (isset($_GET['search'])) {
+  $search = $_GET['search'];
+  $stmt = $pdo->prepare("SELECT s.id, s.name, s.numberOfSeasons, s.synopsis, s.image_url, GROUP_CONCAT(c.nom SEPARATOR ', ') AS category_names
+    FROM serie s
+    JOIN serie_category sc ON s.id = sc.serie_ID
+    JOIN category c ON sc.cat_ID = c.id
+    WHERE name LIKE :search
+    GROUP BY s.id, s.name, s.synopsis, s.image_url");
+  $stmt->execute(['search' => '%' . $search . '%']);
+  $results = $stmt->fetchAll();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,8 +72,8 @@ $pdo = new \PDO(DSN, USER);
             <a class="nav-link active" aria-current="page" href="/category/updateCategory.php">Update a category</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
+        <form class="d-flex" role="search" method="GET" action="">
+          <input class="form-control me-2" type="search" name="search" placeholder="search" aria-label="Search" value="<?php echo htmlspecialchars($search); ?>">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         <a class="nav-link" href="/cart/view_cart.php">
@@ -78,6 +92,30 @@ $pdo = new \PDO(DSN, USER);
       </div>
     </div>
   </nav>
+
+  <div class="container mt-4">
+    <?php if (!empty($results)) : ?>
+      <h2>Search results for "<?php echo htmlspecialchars($search); ?>"</h2>
+      <ul class="list-group">
+        <?php foreach ($results as $serie) : ?>
+          <li class="list-group-item">
+            <div class="d-flex justify-content-center">
+              <a href="serieDetail.php?id=<?= $serie['id'] ?>">
+                <img src="<?= $serie['image_url'] ?>" class="img-fluid rounded-start" alt="..." style="width:250px; height:300px;">
+              </a>
+            </div>
+            <h5 class="card-title" style="font-size: 30px;">
+              <a href="serieDetail.php?id=<?= $serie['id'] ?>"><?= $serie['name'] ?></a> - <span style="font-size: 20px;"><?= $serie['category_names'] ?></span>
+            </h5>
+            <p><?php echo htmlspecialchars($serie['synopsis']); ?></p>
+          </li>
+        <?php endforeach; ?>
+      </ul>
+    <?php elseif ($search) : ?>
+      <p>No results found for "<?php echo htmlspecialchars($search); ?>"</p>
+    <?php endif; ?>
+  </div>
+
   <!-- Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
