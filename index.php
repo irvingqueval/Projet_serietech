@@ -8,6 +8,7 @@ $query = "
     JOIN serie_category sc ON s.id = sc.serie_ID
     JOIN category c ON sc.cat_ID = c.id
     GROUP BY s.id, s.name, s.synopsis, s.image_url
+    ORDER BY s.name
 ";
 $statement = $pdo->query($query);
 $series = $statement->fetchAll(PDO::FETCH_ASSOC);
