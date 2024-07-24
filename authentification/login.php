@@ -30,7 +30,12 @@ if (isset($_SESSION['account_created']) && $_SESSION['account_created']) {
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h2 class="mt-5">Login</h2>
+            <h2 class="mt-5">Connection</h2>
+            <?php if ($accountCreated): ?>
+                <div class="alert alert-success" role="alert">
+                    Account created successfully. You can now log in.
+                </div>
+            <?php endif; ?>
             <?php if (isset($error)): ?>
                 <div class="alert alert-danger" role="alert">
                     <?= htmlspecialchars($error) ?>
@@ -40,7 +45,6 @@ if (isset($_SESSION['account_created']) && $_SESSION['account_created']) {
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" required>
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -48,10 +52,10 @@ if (isset($_SESSION['account_created']) && $_SESSION['account_created']) {
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="/authentification/register.php" class="btn btn-secondary">Create an Account</a>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <a href="/authentification/register.php" class="btn btn-secondary">Create an account</a>
             </form>
         </div>
     </div>
