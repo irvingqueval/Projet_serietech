@@ -108,6 +108,18 @@ if (isset($_GET['search'])) {
               <a href="serieDetail.php?id=<?= $serie['id'] ?>"><?= $serie['name'] ?></a> - <span style="font-size: 20px;"><?= $serie['category_names'] ?></span>
             </h5>
             <p><?php echo htmlspecialchars($serie['synopsis']); ?></p>
+            <div class="d-flex justify-content-around">
+              <button type="button" class="btn btn-outline-danger">
+                <a href="/serie/confirmDelete.php?id=<?= $serie['id'] ?>">Delete</a>
+              </button>
+              <button type="button" class="btn btn-outline-warning">
+                <a href="/serie/updateSerie.php?id=<?= $serie['id'] ?>">Update</a>
+              </button>
+              <form action="/cart/add_to_cart.php" method="post">
+                <input type="hidden" name="serie_id" value="<?php echo $serie['id']; ?>">
+                <button type="submit" class="btn btn-outline-success">Add to cart</button>
+              </form>
+            </div>
           </li>
         <?php endforeach; ?>
       </ul>
