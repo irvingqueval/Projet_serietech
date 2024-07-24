@@ -1,5 +1,5 @@
 <?php
 require_once "../_connect.php";
-session_destroy();
+unset($_SESSION['user']);
 header('Location: /index.php');
 ?>
